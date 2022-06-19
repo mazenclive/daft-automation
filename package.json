@@ -17,6 +17,9 @@
     "prettier": "2.7.1"
   },
   "lint-staged": {
-    "*.ts": "prettier --write"
+    "*.{ts,json,md}": "prettier --write"
+  },
+  "dependencies": {
+    "yup": "^0.32.11"
   }
 }

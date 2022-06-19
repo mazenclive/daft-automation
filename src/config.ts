@@ -1,3 +1,3 @@
 export const config = {
-  APP_RENT_URL: "https://www.daft.ie/property-for-rent/ireland",
+  APP_BASE_URL: 'https://www.daft.ie/',
 } as const;
