@@ -1,6 +1,6 @@
 # daft.ie Automation
 
-Script to automate process for applying to rented property on daft.ie
+Script to automate process for applying for rented property on daft.ie
 
 ## Setup
 

@@ -1,13 +1,14 @@
-import { Page, test } from '@playwright/test';
+import { test } from '@playwright/test';
 import { config } from './config';
 import { getSecrets } from './utils/secrets';
+import { getRentedPropertyUrl } from './utils/daft';
 
 test.beforeEach(async ({ page }) => {
   // Get secrets
   const secrets = await getSecrets();
 
   // Visit home page
-  await page.goto(config.APP_BASE_URL);
+  await page.goto(config.daft.baseUrl);
 
   // Accept cookies
   await page.locator('text=Accept All').click();
@@ -21,6 +22,9 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('rent property application', () => {
   test('apply for property', async ({ page }) => {
-    await page.waitForTimeout(1000 * 60 * 10);
+    // Visit listing page
+    await page.goto(getRentedPropertyUrl(config));
+
+    // await page.waitForTimeout(1000 * 60 * 10);
   });
 });
