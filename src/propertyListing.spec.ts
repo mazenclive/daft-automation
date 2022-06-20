@@ -3,8 +3,12 @@ import { config } from './config';
 import { getSecrets } from './utils/secrets';
 import { getRentedPropertyUrl } from './utils/daft';
 import { getStringFromTemplate } from './utils/template';
+import { initStorage } from './utils/storage';
 
 test.beforeEach(async ({ page }) => {
+  // Init storage
+  await initStorage();
+
   // Get secrets
   const secrets = await getSecrets();
 
