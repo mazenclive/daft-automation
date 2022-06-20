@@ -11,7 +11,7 @@ export function getRentedPropertyUrl(config: Config) {
 
   // Add filtering parameter
   if (config.filters) {
-    const { maxBudget, minBeds, maxBeds } = config.filters;
+    const { maxBudget, minBeds, maxBeds, locations } = config.filters;
 
     // Budget
     addOptionalParameter(url, 'rentalPrice_to', maxBudget?.toString());
@@ -19,6 +19,13 @@ export function getRentedPropertyUrl(config: Config) {
     // Beds
     addOptionalParameter(url, 'numBeds_from', minBeds?.toString());
     addOptionalParameter(url, 'numBeds_to', maxBeds?.toString());
+
+    // Locations
+    if (locations && locations.length > 0) {
+      locations.forEach((location) =>
+        addOptionalParameter(url, 'location', location)
+      );
+    }
   }
 
   return url.href;

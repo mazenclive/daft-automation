@@ -3,7 +3,8 @@
     "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": ["ES2021.String"]
   },
   "exclude": ["node_modules"]
 }

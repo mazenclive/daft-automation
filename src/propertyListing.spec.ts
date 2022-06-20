@@ -25,6 +25,6 @@ test.describe('rent property application', () => {
     // Visit listing page
     await page.goto(getRentedPropertyUrl(config));
 
-    // await page.waitForTimeout(1000 * 60 * 10);
+    await page.waitForTimeout(1000 * 60 * 10);
   });
 });
