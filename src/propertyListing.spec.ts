@@ -1,9 +1,12 @@
 import { test } from '@playwright/test';
 import { config } from './config';
 import { getSecrets } from './utils/secrets';
-import { getRentedPropertyUrl } from './utils/daft';
+import {
+  getPropertyIdFromListingURL,
+  getRentedPropertyUrl,
+} from './utils/daft';
 import { getStringFromTemplate } from './utils/template';
-import { initStorage } from './utils/storage';
+import { initStorage, isPropertyApplied, saveProperty } from './utils/storage';
 
 test.beforeEach(async ({ page }) => {
   // Init storage
@@ -38,9 +41,18 @@ test.describe('rent property application', () => {
       const listing = await arrayOfLocators.nth(index);
       await listing.click();
 
+      await page.waitForNavigation({ waitUntil: 'networkidle' });
+
       const address = (await page.innerText('[data-testid="address"]'))
         .split(',')
         .pop();
+      const propertyId = getPropertyIdFromListingURL(page.url());
+
+      // Skip applied fo
+      if (await isPropertyApplied(propertyId)) {
+        await page.goBack();
+        continue;
+      }
 
       await page.click('[data-testid="message-btn"]');
 
@@ -59,6 +71,9 @@ test.describe('rent property application', () => {
       );
       // await page.click('[data-testid="submit-button"]');
       // await page.waitForResponse('https://gateway.daft.ie/old/v1/reply');
+
+      // Save property in database
+      await saveProperty(propertyId);
 
       await page.goBack();
     }

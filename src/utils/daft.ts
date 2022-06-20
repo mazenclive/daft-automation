@@ -36,3 +36,7 @@ function addOptionalParameter(url: URL, parameter: string, value?: string) {
     url.searchParams.append(parameter, value);
   }
 }
+
+export function getPropertyIdFromListingURL(url: string): string {
+  return url.split('/').pop();
+}

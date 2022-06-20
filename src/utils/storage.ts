@@ -40,7 +40,7 @@ export async function initStorage() {
     fs.mkdirSync(storageLocation);
   }
 
-  await sequelize.sync({ alter: true });
+  await sequelize.sync({ alter: { drop: false } });
 }
 
 export async function saveProperty(id: string) {
