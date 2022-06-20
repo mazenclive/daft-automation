@@ -12,6 +12,12 @@ export type Config = {
     locations?: ReadonlyArray<string>;
   };
   sorting?: SortType;
+  contactInfo: {
+    fullName: string;
+    emailId: string;
+    contactNumber: string;
+    messageTemplate: string;
+  };
 };
 
 export type TemplateProp = {
