@@ -84,13 +84,8 @@ test.describe('rent property application', () => {
       }
 
       // Click next button if exists
-      const nextButtonLocator = await page.locator(
-        '[data-testid="go-to-next-page"]'
-      );
-      if ((await nextButtonLocator.count()) === 0) break;
-
-      await nextButtonLocator.nth(0).click();
-      await page.waitForLoadState('networkidle');
+      await page.click('[data-testid="go-to-next-page"]');
+      await page.waitForNavigation({ waitUntil: 'networkidle' });
     }
   });
 });
