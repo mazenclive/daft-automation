@@ -28,13 +28,6 @@ const Property = sequelize.define(
   }
 );
 
-const Notion = sequelize.define('notion', {
-  databaseId: {
-    type: DataTypes.STRING,
-    primaryKey: true,
-  },
-});
-
 export async function initStorage() {
   if (!fs.existsSync(storageLocation)) {
     fs.mkdirSync(storageLocation);
@@ -50,13 +43,4 @@ export async function saveProperty(id: string) {
 export async function isPropertyApplied(id: string) {
   const count = await Property.count({ where: { id } });
   return count > 0;
-}
-
-export async function saveNotionDatabaseId(databaseId: string) {
-  return await Notion.build({ databaseId }).save();
-}
-
-export async function getNotionDatabaseId() {
-  const row = await Notion.findOne();
-  return row.get('databaseId') as string;
 }

@@ -5,6 +5,7 @@ export type Config = {
     baseUrl: string;
     rentedPropertyUrl: string;
   };
+  maxPagesToScan: number;
   filters?: {
     maxBudget?: number;
     minBeds?: number;

@@ -7,6 +7,7 @@ export const config: Config = {
     baseUrl: 'https://www.daft.ie/',
     rentedPropertyUrl: 'https://www.daft.ie/property-for-rent/ireland',
   },
+  maxPagesToScan: 5,
   sorting: 'publishDateDesc',
   filters: {
     maxBudget: 3000,
