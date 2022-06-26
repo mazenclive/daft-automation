@@ -36,7 +36,7 @@ My name is Sunit Deshpande and I'm writing to you because I'm very interested in
       prop
     ) => prop.address}. I was particularly interested in this place.
 
-I currently am a renter in Luxembourg, Europe but am eager to move to Ireland because I have recently acquired a full-time permanent Software Engineer position at Workday, Ireland.
+I currently am a renter in Luxembourg, Europe but am eager to move to Ireland with my wife because I have recently acquired a full-time permanent Software Engineer position at Workday, Ireland.
 
 I'm sure you receive several rental applications each day, so I wanted to take some time to help you get to know me a little better and show you why I'm the best applicant for this vacancy.
 
